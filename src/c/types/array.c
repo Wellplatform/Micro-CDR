@@ -102,7 +102,7 @@ void ucdr_buffer_to_array(
     { \
         for (uint32_t i = 0; i < size; ++i) \
         { \
-            ucdr_serialize_endian_ ## TYPE(ub, ENDIAN, *(array + i)); \
+            ucdr_serialize_endian_ ## #TYPE(ub, ENDIAN, *(array + i)); \
         } \
     } \
     return !ub->error;
@@ -143,7 +143,7 @@ void ucdr_buffer_to_array(
     { \
         for (uint32_t i = 0; i < size; ++i) \
         { \
-            ucdr_deserialize_endian_ ## TYPE(ub, ENDIAN, array + i); \
+            ucdr_deserialize_endian_ ## #TYPE(ub, ENDIAN, array + i); \
         } \
     } \
     return !ub->error;
@@ -172,8 +172,6 @@ void ucdr_buffer_to_array(
 // -------------------------------------------------------------------
 //              PUBLIC SERIALIZATION IMPLEMENTATIONS
 // -------------------------------------------------------------------
-#define _STRINGIFY(__a) #a
-#define STRINGIFY(a) _STRINGIFY(a)
 
 UCDR_ARRAY_DEFINITIONS(_char, char, 1)
 UCDR_ARRAY_DEFINITIONS(_bool, bool, 1)
