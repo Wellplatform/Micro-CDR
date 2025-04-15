@@ -15,8 +15,6 @@
 #include "../common_internal.h"
 
 #include <string.h>
-#define _STRINGIFY(a) #a
-#define STRINGIFY(a) _STRINGIFY(a)
 
 static void ucdr_array_to_buffer(
         ucdrBuffer* ub,
@@ -104,7 +102,7 @@ void ucdr_buffer_to_array(
     { \
         for (uint32_t i = 0; i < size; ++i) \
         { \
-            ucdr_serialize_endian_ ## _STRINGIFY(TYPE)(ub, ENDIAN, *(array + i)); \
+            ucdr_serialize_endian_ ## TYPE(ub, ENDIAN, *(array + i)); \
         } \
     } \
     return !ub->error;
@@ -145,7 +143,7 @@ void ucdr_buffer_to_array(
     { \
         for (uint32_t i = 0; i < size; ++i) \
         { \
-            ucdr_deserialize_endian_ ## _STRINGIFY(TYPE)(ub, ENDIAN, array + i); \
+            ucdr_deserialize_endian_ ## TYPE(ub, ENDIAN, array + i); \
         } \
     } \
     return !ub->error;
