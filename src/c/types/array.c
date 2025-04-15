@@ -172,7 +172,7 @@ void ucdr_buffer_to_array(
 // -------------------------------------------------------------------
 //              PUBLIC SERIALIZATION IMPLEMENTATIONS
 // -------------------------------------------------------------------
-#define _STRINGIFY(a) a
+#define _STRINGIFY(__a) a
 #define STRINGIFY(a) _STRINGIFY(a)
 
 UCDR_ARRAY_DEFINITIONS(_char, char, 1)
