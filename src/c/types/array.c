@@ -16,6 +16,13 @@
 
 #include <string.h>
 
+#define uint64_t uint64_t
+#define uint32_t uint32_t
+#define uint16_t uint16_t
+#define int64_t int64_t
+#define int32_t int32_t
+#define int16_t int16_t
+
 static void ucdr_array_to_buffer(
         ucdrBuffer* ub,
         const uint8_t* array,
