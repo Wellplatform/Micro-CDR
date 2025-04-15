@@ -184,3 +184,7 @@ UCDR_ARRAY_DEFINITIONS(_int32_t, int32_t, 4)
 UCDR_ARRAY_DEFINITIONS(_int64_t, int64_t, 8)
 UCDR_ARRAY_DEFINITIONS(_float, float, 4)
 UCDR_ARRAY_DEFINITIONS(_double, double, 8)
+
+// 第二个参数直接使用uintxx和intxx存在bug。
+// 在交叉编译器中，uintxx_t 很可能是这种形式：typedef __uintxx_t uintxx_t
+// 导致ucdr_serialize_endian_和ucdr_deserialize_endian_函数名多两个__
